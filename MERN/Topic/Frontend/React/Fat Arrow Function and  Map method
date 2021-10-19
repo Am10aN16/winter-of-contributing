@@ -1,0 +1,153 @@
+Intrdouction:-
+
+ Arrow Functions — also called “fat arrow” functions, are relatively a new way of 
+ writing concise functions in JavaScript. They have been introduced by the ECMAScript 6
+ specifications and since then become the most popular ES6 feature. Arrow functions allow
+ us to use the fat arrow => operator to quickly define JavaScript functions, with or without
+ parameters. We are able to omit the curly braces and the function and return keywords when
+ creating a new JavaScript function to write shorter function syntax. They are not only time
+ savers but also produce clean and more readable functions.
+
+
+ Let’s take a look at some real-world scenarios to create arrow functions — using ES6 versus older
+ ECMAScript 5 notation so that we can see how the two syntaxes compare to each other.
+
+ No Parameters
+
+The simplest arrow function syntax is when the function doesn’t have any parameters. In the example below,
+the ECMAScript 5 syntax declares a function expression and assigns it to the party variable. It outputs a
+simple text string to the console, saying "Party Hard!":
+
+ES5 syntax with no parameters:-
+const party = function(){
+    return "Party Hard!";
+}
+
+console.log(party());
+// Party Hard!
+
+ In the arrow function syntax, the curly brackets and the function and return keywords disappear. Now, the whole 
+ function takes just one single line. The empty parentheses indicate that the function doesn’t have any parameters
+ and the fat arrow binds the function body to the (currently non-existing) parameters:
+
+ ES6 syntax with no parameters
+ const party = ()=> "Party Hard!";
+
+ console.log(party());
+ //Party Hard!
+
+ One Parameter
+
+ Let’s extend the previous example with one parameter, specifically name. The old ES5 syntax takes in one parameter 
+ and appends its value to the string to be returned:
+
+ ES5 syntax with one parameter:
+ const party = function(name){
+    return "Party Hard," + name + "!";
+}
+
+ console.log(party("Aman"));
+ //Party Hard, Aman!
+
+ The arrow function syntax essentially does the same thing. We need to enclose the name parameter within the parentheses
+ before the fat arrow and omit the return keyword in the function block:
+
+ ES6 syntax with one parameter
+ const party = (name)=> "Party Hard ," + name + "!";
+
+ console.log(party("Aman"));
+ //Party Hard, Aman!
+
+ Two Parameters
+
+ We can use arrow functions with as many parameters as we want. For instance, here is the same example with two parameters,
+ age and name. Now, the birthday() function requires two inputs to return the string. First, let’s use ECMAScript 5: 
+
+ ES5 syntax with two parameters
+
+ const party = function(age,name){
+    return "Party of" + age + "st birthday" + name + "!";
+  }
+
+ console.log(party(21, "Aman"));
+ // Party of 21st birthday Aman!
+
+ And, here’s the same code with the new ES6 notation:
+
+ const party = (age , name)=> "Party of" + age + "st birthday" + name + "!";
+
+ console.log(party(21, "Aman"));
+ // Party of 21st birthday Aman!
+
+ Object Literals:
+
+ We can also use the arrow function syntax to declare setter functions that let users set the value of object literals. 
+ The setBirthday() function below allows users to set the name and age of the person having a birthday:
+
+ Object literals setter with ES5 syntax
+
+ const setBirthday = function(name , age) {
+    return{
+        name: name,
+        age : age
+    }
+ }
+
+ console.log(setBirthday("Aman" , 21));
+ //Object{name: "Aman" , age: 21}
+
+ By making use of the arrow function notation, it only takes one line to define the same setter function:
+
+ const setBirthday = (name , age) =>({name: name , age: age});
+
+ console.log(setBirthday("Aman" , 21));
+ //Object{name: "Aman" , age: 21}
+
+ Array Manipulation:
+
+ We can use arrow functions to manipulate JavaScript arrays as well. For example, let’s have a look at the persons array that
+ includes three object literals, each having a name and age property:
+
+const persons = [
+    {name: "Aman" , age: 21},
+    {name: "Nandini" , age: 20},
+    {name: "Ankita" , age: 20}
+];
+
+ JavaScript’s built-in map() method lets us call the same function on every element of the array. Using the traditional ES5 notation,
+ we can return the name property of every person in the following way:
+
+ Array manipulation with ES5 syntax
+ const haveBirthday = persons.map(function (person) {
+    return person.name;
+ });
+
+ console.log(haveBirthday);
+ //Array(3) ["Aman", "Nandini", "Ankita"]
+
+ With the arrow function notation, we can perform the same task in one line:
+
+ Array manipulation with ES6 syntax
+
+ var haveBirthday = persons.map(person => person.name);
+
+ console.log(haveBirthday);
+ //Array(3) ["Aman", "Nandini", "Ankita"]
+
+ When Not To Use Arrow Functions:
+
+ Although arrow functions have many use cases, they come with some limitations as well. There are some scenarios when we can’t or shouldn’t
+ use the arrow function syntax.
+
+ Most importantly, we can’t create constructors with arrow functions. If we use the new keyword together with the fat arrow syntax, the 
+ console will throw an error. This happens because JavaScript treats arrow functions in the same way as object methods. As a result, 
+ they can’t have their own methods, which would be an essential characteristic of JavaScript objects. Besides, we can’t use the ES6 
+ syntax to declare object literals and callback functions containing methods that make use of the this keyword, as arrow functions 
+ treat this in a different way.
+
+
+ Conclusion:-
+
+ Arrow functions provide developers with a useful shorthand to write function expressions in JavaScript. The fat arrow syntax has many
+ use cases, so it has quickly become the favorite ES6 feature of the JavaScript community. If used consistently, the new compact notation
+ can save a lot of time and bandwidth, and improve code readability.
